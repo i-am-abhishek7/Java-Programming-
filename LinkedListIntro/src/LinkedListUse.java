@@ -45,9 +45,60 @@ public class LinkedListUse {
         return head;
     }
 
+    public static Node<Integer> deleteNode(Node<Integer> head, int pos) {
+
+        if (head == null) {
+            return head;
+        }
+
+        if(pos == 0) {
+            return head.next;
+        }
+
+        int count = 0;
+        Node<Integer> currNode = head;
+        while(currNode != null && count < (pos - 1)) {
+            currNode = currNode.next;
+            count++;
+        }
+
+        if (currNode == null || currNode.next == null) {
+            return head;
+        }
+
+        currNode.next = currNode.next.next;
+        return head;
+        /*
+        if(head == null) {
+            return null;
+        }
+
+        if(pos == 0) {
+            Node<Integer> temp = head;
+            temp = temp.next;
+            head = temp;
+            return head;
+        }
+
+        int count = 0;
+        Node<Integer> temp = head;
+        while(count < pos - 1) {
+            temp = temp.next;
+            count++;
+        }
+
+        if(temp.next.next == null) {
+            temp.next = null;
+        } else {
+            temp.next = temp.next.next;
+        }
+        return head;
+        */
+    }
+
     public static void main(String[] args) {
         Node<Integer> head = takeInput();
-        head = insert(head, 80, 0);
+        head = deleteNode(head, 1);
         print(head);
     }
 }
