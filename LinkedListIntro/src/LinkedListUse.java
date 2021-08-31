@@ -48,7 +48,7 @@ public class LinkedListUse {
     public static Node<Integer> deleteNode(Node<Integer> head, int pos) {
 
         if (head == null) {
-            return head;
+            return null;
         }
 
         if(pos == 0) {
