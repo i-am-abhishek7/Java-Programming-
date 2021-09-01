@@ -96,9 +96,29 @@ public class LinkedListUse {
         */
     }
 
+    public static int findNode(Node<Integer> head, int key) {
+        if(head == null) {
+            return -1;
+        }
+        Node<Integer> temp = head;
+        int count = 0;
+        while(temp != null) {
+            if(temp.data == key) {
+                return count;
+            }
+            temp = temp.next;
+            count++;
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         Node<Integer> head = takeInput();
-        head = deleteNode(head, 1);
-        print(head);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the key to be searched in linked list");
+        int n = sc.nextInt();
+        int ans = findNode(head, n);
+        System.out.println("The node found at position : " + ans);
+//        print(head);
     }
 }
